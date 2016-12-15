@@ -35,7 +35,7 @@ BMP文件的数据格式按照从文件头开始的先后顺序分为四个部分：
 |biHeight|0016h|4 bytes|说明图像的高度，以像素为单位，此外，还表示图像是正向的位图还是倒向的位图，>0表示是倒向的位图|
 |biPlanes|001Ah|2 bytes| 为目标设备说明颜色平面数，总设置为1|
 |biBitCount|001Ch| 2 bytes| 说明 比特数/像素 ，其值为1、4、8、16、24或者32|
-|biCompression|4 bytes|说明图像压缩的类型，-0 BI_RGB 不压缩-1 BI_BLE8 8比特游程编码，只用于8位位图-2 BI_BLE4 4比特游程编码，只适用于4位位图-3 BI_BITFIELDS 比特域，用于16/32位位图-4 BI_JPEG JPEG位图含JPEG图像
+|biCompression001Eh||4 bytes|说明图像压缩的类型，-0 BI_RGB 不压缩-1 BI_BLE8 8比特游程编码，只用于8位位图-2 BI_BLE4 4比特游程编码，只适用于4位位图-3 BI_BITFIELDS 比特域，用于16/32位位图-4 BI_JPEG JPEG位图含JPEG图像
 -5 BI_PNG PNG 位图含PNG图像|
 |biSizeImage|0022h|4 bytes|说明图像的大小，以字节为单位，当用BI_RGB时可以设置为0|
 |biXPelsPerMeter|0026h|4 bytes|说明水平分辨率，用像素/米 表示，有符号整数|
