@@ -1,4 +1,4 @@
-#[bmp](./bmp/bmp.md)  
+# [bmp](./bmp/bmp.md)  
 bmp和yuv420 plat格式的图片文件相互转换  
 运行环境：linux，编译器：gcc  
 文件说明：  
@@ -11,3 +11,6 @@ bmp和yuv420 plat格式的图片文件相互转换
 
 ## [opencv-ROI](./opencv/roi/opencv-ROI.md)
 opencv ROI和图像混合
+
+## [addWeighted](./opencv/addWeight/README.md)
+opencv addWeighted 函数进行线性混合
