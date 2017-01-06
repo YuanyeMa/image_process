@@ -7,10 +7,10 @@
 `void setMouseCallback(const String& winname, MouseCallback onMouse, void* userdata = 0);`  
 第一个参数：winname, 指定哪一个窗口（nameWindow创建的窗口名字符串）；  
 第二个参数：onMouse，`void (*MouseCallback)(int event, int x, int y, int flags, void* userdata);`类型的函数指针
->其中event表示事件类型， 常用的有EVENT_MOUSEMOVE，EVENT_LBUTTONDOWN,EVENT_LBUTTONUP等等
->x,y分别表示鼠标的坐标，
->flags是EVENT_FLAG的组合  
->userdata表示用户自定义数据    
+>其中event表示事件类型， 常用的有EVENT_MOUSEMOVE，EVENT_LBUTTONDOWN,EVENT_LBUTTONUP等等  
+>x,y分别表示鼠标的坐标，  
+>flags是EVENT_FLAG的组合    
+>userdata表示用户自定义数据      
 
 第三个参数：userdata，表示传递给回调函数的自定义参数，一般设置为0
 
