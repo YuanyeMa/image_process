@@ -1,4 +1,4 @@
-# higui组件即绘图
+# higui组件及绘图
 ## main.cpp运行效果
 ![mouse](./mouse.gif)
 
