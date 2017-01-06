@@ -15,5 +15,7 @@ opencv ROI和图像混合
 ## [addWeighted](./opencv/addWeight/README.md)
 opencv addWeighted 函数进行线性混合
 
-## [图像亮度和对比度调节](./bright/README.md)
+## [图像亮度和对比度调节](./opencv/bright/README.md)
 对比度和亮度调节的示例程序，对比度和亮度的调节方法，滑动条的使用以及像素的访问方法；
+
+## [highgui基本组件和基本绘图](./opencv/mouseAndDraw/README.md)
