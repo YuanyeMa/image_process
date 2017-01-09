@@ -15,6 +15,6 @@ resize函数的函数原型
                           Size dsize, double fx = 0, double fy = 0,
                           int interpolation = INTER_LINEAR );`  
 
-在python中，图片被当做矩阵来处理/r
+在python中，图片被当做矩阵来处理<br>
 处理矩阵会使用numpy中的各种方法
 
