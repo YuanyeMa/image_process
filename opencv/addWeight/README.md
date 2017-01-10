@@ -1,4 +1,7 @@
 # addWeighted 图像混合(线性混合)
+## 原图
+![01](./01.jpg)  
+![02](./02.jpg)
 ## 效果
 ![线性混合](./addWeighted.jpg)
 
@@ -23,4 +26,7 @@ Mat imageROI = srcImg1(Rect(1000, 150, srcImg2z.cols, srcImg2z.rows));
 addWeighted(imageROI, a, srcImg2z, b, 0, imageROI);
 ```
 效果如下
-![addWeighted-part](./addWeighted-part.jpg)
+![addWeighted-part](./addWeighted-part.jpg)  
+
+## python版addWeighted-part
+[addWeighted-part.py](./addWeighted-part.py)
