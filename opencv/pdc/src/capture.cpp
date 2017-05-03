@@ -12,11 +12,17 @@
 
 using namespace cv;
 using namespace std;
-/*
-   提取联通域
-	mode : CV_RETR_EXTERNAL 提取最外层的轮廓
-	method : CV_CHAIN_APPOX_NONE 
- */
+
+/********************************************************************* 
+function : 提取联通域 
+param:
+	@fgmask : 前景
+	@selobj : 标记联通域所需的内存
+	@obj_rece : 目标的外接矩形列表
+	@noiseSuppressionImg : 经过噪声抑制的前景图片
+return:
+	目标的个数
+**********************************************************************/
 int find_blob_rectangle(Mat & fgmask, connectionAreaSelObj & selobj, vector<Rect> & obj_rect, Mat & noiseSuppressionImg)
 {
 	OnePass(fgmask, selobj, obj_rect, noiseSuppressionImg);
@@ -24,6 +30,19 @@ int find_blob_rectangle(Mat & fgmask, connectionAreaSelObj & selobj, vector<Rect
 	return obj_rect.size();
 }
 
+
+/********************************************************************* 
+function : 显示图片
+param : 
+	@winName : 显示的窗体名字
+	@frame : 原始图像
+	@gray : 灰度图
+	@fgmask : 前景
+	@noise : 经过噪声抑制的图片
+	@oVideoWriter : 保存视频句柄
+return:
+	0
+**********************************************************************/
 #if VIDEO_SAVE 
 int show_image_inwindow(const string & winName , const Mat & frame, const Mat & gray, const Mat & fgmask, const Mat & noise, VideoWriter & oVideoWriter)
 #else
@@ -59,9 +78,21 @@ int show_image_inwindow(const string & winName , const Mat & frame, const Mat & 
 		oVideoWriter.write(image);
 #endif 
 	imshow(winName, image);
+
+	return 0;
 }
 
 
+/********************************************************************* 
+function : 获取ROI图像
+param :
+	@rect : 目标矩形区域
+	@frame : 原图
+	@roi : ROI图像
+return :
+	@success : 0
+	@other : -1
+**********************************************************************/
 int get_roi_rect(Rect & rect, Mat & frame, Mat & roi)
 {	
 	Rect rect_roi = rect;
@@ -104,10 +135,6 @@ int main(int argc, char ** argv)
 	bool led_on = false;
 	double tt = 0;
 
-	/* 设置IO口 */
-	wiringPiSetup();
-	pinMode(0, OUTPUT);
-	/* end */
 
 	Mat fgmask;	//前景掩膜
 	Mat graimg;	//灰度图
@@ -162,7 +189,7 @@ int main(int argc, char ** argv)
 		mog2(graimg, fgmask, 0.001);	//前景提取
 
 		//Mat bg;
-		//mog2.getBackgroundImage(bg);
+		//mog2.getBackgroundImage(bg); //只有BGR图片能够获取背景
 		if (frame_count > 500) {
 			medianBlur(fgmask, fgmask, 3); //中值滤波
 			threshold(fgmask, fgmask, 50, 255, CV_THRESH_BINARY); //二值化
@@ -215,10 +242,8 @@ int main(int argc, char ** argv)
 			}
 			if (led_on) {
 				ellipse(frame, Point(600,40), Size(20, 20), 0, 0, 360, Scalar(0, 0, 255), -1);	
-				digitalWrite(0, HIGH);
 			} else { 
 				ellipse(frame, Point(600,40), Size(20, 20), 0, 0, 360, Scalar(255, 0, 0), -1);
-				digitalWrite(0, LOW);
 			}
 
 #if VIDEO_SAVE 
