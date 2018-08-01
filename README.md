@@ -33,3 +33,6 @@ opencv addWeighted 函数进行线性混合
 ### [highgui基本组件和基本绘图](./opencv/mouseAndDraw/README.md)
 
 ### [erode/dilate](./opencv/erode_dilate/README.md)
+
+### [画目标轮廓](./opencv/findContours/README.md)
+
