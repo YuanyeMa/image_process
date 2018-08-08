@@ -30,3 +30,10 @@ addWeighted(imageROI, a, srcImg2z, b, 0, imageROI);
 
 ## python版addWeighted-part
 [addWeighted-part.py](./addWeighted-part.py)
+
+## PIL Image 模块的blend函数实现相同效果
+```
+PIL.Image.blend(image1, image2, alpha)
+out= image1 * (1-alpha) + image2 * alpha
+```
+[addWeight-by-blend.py](./addWeight-by-blend.py)
