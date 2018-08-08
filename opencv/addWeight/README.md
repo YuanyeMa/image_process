@@ -37,3 +37,4 @@ PIL.Image.blend(image1, image2, alpha)
 out= image1 * (1-alpha) + image2 * alpha
 ```
 [addWeight-by-blend.py](./addWeight-by-blend.py)
+[addWeight-parted-blend.py](./addWeight-parted-blend.py)
